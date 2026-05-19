@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-black: #1D1D1D;
+  --color-yellow: #F5F500;
+  --color-white: #FFFFFF;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-mono), monospace;
+}
+
+.brutal-border {
+  border: 3px solid var(--color-black);
+}
+
+.brutal-shadow {
+  box-shadow: 6px 6px 0px 0px var(--color-black);
+}
+
+.brutal-shadow-sm {
+  box-shadow: 4px 4px 0px 0px var(--color-black);
+}
+
+.brutal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--color-black);
+  background: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-btn:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px 0px var(--color-black);
+}
+
+.brutal-btn-yellow {
+  background: var(--color-yellow);
+}
+
+.brutal-btn-black {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.brutal-card {
+  border: 3px solid var(--color-black);
+  background: var(--color-white);
+  padding: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px var(--color-black);
+}
+
+@keyframes scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  animation: scroll-reveal 0.6s ease-out forwards;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 6px 6px 0px 0px var(--color-black);
+  }
+  50% {
+    box-shadow: 10px 10px 0px 0px var(--color-black);
+  }
+}
+
+.pulse-attention {
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.network {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .pulse-attention {
+    animation: none;
+  }
+
+  .brutal-card,
+  .brutal-btn {
+    transition: none;
+  }
+}
